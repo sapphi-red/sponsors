@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   update-sponsors:
     runs-on: ubuntu-latest
@@ -28,9 +31,7 @@ jobs:
           HIDE_TIER_USERS: ${{ vars.HIDE_TIER_USERS }}
 
       - name: Commit
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v9
         with:
           message: "chore: update sponsors.svg"
           add: "dist/sponsors.*"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
