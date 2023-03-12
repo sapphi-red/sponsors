@@ -35,3 +35,4 @@ jobs:
         with:
           message: "chore: update sponsors.svg"
           add: "dist/sponsors.*"
+          default_author: github_actions
