@@ -25,6 +25,7 @@ jobs:
         run: npm run build
         env:
           SPONSORKIT_GITHUB_TOKEN: ${{ secrets.SPONSORS_TOKEN }}
+          HIDE_TIER_USERS: ${{ vars.HIDE_TIER_USERS }}
 
       - name: Commit
         uses: EndBug/add-and-commit@v4
