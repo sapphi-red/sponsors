@@ -1,4 +1,6 @@
-import { defineConfig, presets } from 'sponsorkit'
+/// <reference types="node" />
+
+import { defineConfig, tierPresets } from 'sponsorkit'
 
 const hideTierUsers =
   new Set(process.env.HIDE_TIER_USERS?.split(',').map((u) => u.trim()) ?? [])
@@ -28,19 +30,19 @@ export default defineConfig({
   tiers: [
     {
       title: 'Backers',
-      preset: presets.xs
+      preset: tierPresets.xs
     },
     {
       title: 'Sponsors',
       monthlyDollars: 10,
-      preset: presets.small
+      preset: tierPresets.small
     },
     {
       title: 'Bronze Sponsors',
       monthlyDollars: 20,
       preset: {
-        ...presets.base,
-        boxHeight: presets.base.boxHeight + 16,
+        ...tierPresets.base,
+        boxHeight: tierPresets.base.boxHeight + 16,
         name: {
           maxLength: 8
         }
@@ -49,12 +51,12 @@ export default defineConfig({
     {
       title: 'Silver Sponsors',
       monthlyDollars: 50,
-      preset: presets.medium
+      preset: tierPresets.medium
     },
     {
       title: 'Gold Sponsors',
       monthlyDollars: 100,
-      preset: presets.large
+      preset: tierPresets.large
     }
   ]
 })
